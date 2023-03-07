@@ -22,23 +22,23 @@ class GameServiceApplicationTests {
 	
 	@Test
 		void addgame() throws Exception {
-			new Game(1,"car racing","video games", (float) 250.90);
-			assertNotNull(gameDao.findById(1).get());
+			new Game(3,"car racing","video games", (float) 250.90);
+			assertNotNull(gameDao.findById(3).get());
 
 		}
 		
 		
 		@Test
 		 void getGame(){
-			 Game game = gameDao.findById(1).get();
-			 Assertions.assertThat(game.getGameId()).isEqualTo(1);
+			 Game game = gameDao.findById(3).get();
+			 Assertions.assertThat(game.getGameId()).isEqualTo(3);
 			 }
 		
 		
 		@Test
 		@Rollback(value = false)
 		void updateGame(){
-		Game game = gameDao.findById(1).get();
+		Game game = gameDao.findById(3).get();
 		 game.setGameName("car racing");
 		Game gameUpdated =gameDao.save(game);
 		Assertions.assertThat(gameUpdated.getGameName()).isEqualTo("car racing");
